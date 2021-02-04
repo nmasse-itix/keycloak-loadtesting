@@ -1,0 +1,6 @@
+[submodule "keycloak-loadtesting-k6"]
+	path = k6
+	url = git@github.com:nmasse-itix/keycloak-loadtesting-k6.git
+[submodule "keycloak-loadtesting-setup"]
+	path = setup
+	url = git@github.com:nmasse-itix/keycloak-loadtesting-setup.git

@@ -33,7 +33,28 @@
   "quickLoginCheckMilliSeconds": 1000,
   "maxDeltaTimeSeconds": 43200,
   "failureFactor": 30,
-  "users": [],
+  "users": [
+{{- range $count, $user := .Users }}
+{{- if gt $count 0 }},{{ end }}
+    {
+      "username": "user_{{ $user.ID }}",
+      "firstName": "User",
+      "lastName": "{{ $user.ID }}",
+      "email": "user_{{ $user.ID }}@nowhere.test",
+      "emailVerified": true,
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "user_{{ $user.ID }}"
+        }
+      ],
+      "requiredActions": [],
+      "realmRoles": [],
+      "applicationRoles": {}
+    }
+{{- end }}
+  ],
   "roles": {
     "realm": [],
     "client": {}
